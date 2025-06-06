@@ -1,0 +1,141 @@
+# 🌾 Terreni – definizione, classificazione e calcolo IMU
+
+## ✅ Cosa sono i terreni
+
+I **terreni** sono beni immobili registrati al Catasto Terreni, destinati a usi agricoli o edificabili. Non sono fabbricati, ma porzioni di suolo che possono avere una funzione produttiva (es. coltivazione) o potenziale edilizio.
+
+Nel sistema catastale italiano, i terreni sono censiti separatamente rispetto ai fabbricati e hanno un loro identificativo, una loro rendita (reddito dominicale e agrario) e una classificazione specifica.
+
+---
+
+## 🧩 Come si dividono i terreni
+
+Ai fini IMU, i terreni si dividono principalmente in due categorie:
+
+- **Terreni agricoli**  
+  → utilizzati o utilizzabili per attività agricola, anche se incolti
+
+- **Aree edificabili (terreni edificabili)**  
+  → identificati dallo strumento urbanistico comunale come aree su cui è possibile costruire
+
+⚠️ **Nota importante**:  
+Nel nostro sistema, consideriamo per default tutti i terreni estratti dalle visure come **agricoli**.  
+Sarà poi l’utente a specificare se un terreno è invece **edificabile**.
+
+---
+
+## 🗂️ Dati presenti in visura catastale
+
+Una visura catastale di un terreno contiene generalmente i seguenti dati:
+
+- **Comune** (es. Alba)
+- **Provincia** (es. CN)
+- **Foglio**: numero della mappa catastale
+- **Particella**: identificativo univoco del terreno
+- **Qualità**: tipo di uso agricolo (es. seminativo, vigneto, pascolo, prato, ecc.)
+- **Classe**: indice di produttività agricola (da 1 a 5, opzionale)
+- **Superficie**: in metri quadrati
+- **Reddito dominicale**: reddito teorico attribuito al proprietario
+- **Reddito agrario**: reddito teorico attribuito al coltivatore diretto
+
+Esempio di terreno in visura:
+
+```json
+{
+  "comune": "Alba",
+  "provincia": "CN",
+  "foglio": "45",
+  "particella": "212",
+  "qualità": "seminativo",
+  "classe": "3",
+  "superficie_mq": 3560,
+  "reddito_dominicale": 22.14,
+  "reddito_agrario": 18.20,
+  "uso": null
+}
+
+## 📑 Qualità dei terreni (categorie catastali)
+
+I terreni agricoli vengono classificati tramite la **qualità** e, in alcuni casi, la **classe**.  
+La qualità rappresenta la **destinazione produttiva del terreno**.
+
+Ecco l’elenco completo delle **qualità catastali** ufficiali:
+
+- Acquacoltura
+- Arboreto da legno
+- Arboricoltura da legno
+- Bosco ceduo
+- Bosco misto
+- Bosco di alto fusto
+- Castagneto
+- Coltura promiscua
+- Frutteto
+- Frutteto irriguo
+- Incolto produttivo
+- Incolto sterile
+- Orticello
+- Orto irriguo
+- Pascolo
+- Pascolo arborato
+- Pascolo cespugliato
+- Pascolo cespugliato arborato
+- Prato
+- Prato arborato
+- Prato cespugliato
+- Prato cespugliato arborato
+- Querceto
+- Risaia
+- Seminativo
+- Seminativo arborato
+- Seminativo irriguo
+- Uliveto
+- Uliveto arborato
+- Uliveto irriguo
+- Vigneto
+- Vigneto arborato
+- Vigneto irriguo
+
+> ⚠️ I terreni **non** hanno categorie catastali come A/2 o C/6.  
+> Sono identificati da **foglio**, **particella**, **qualità** e **classe**.
+
+## 🧮 Calcolo IMU per i terreni
+
+### ✅ Terreni agricoli
+
+La base imponibile si calcola partendo dal **reddito dominicale**:
+
+base_imponibile = reddito_dominicale × 1.25 × 135
+
+- Il coefficiente **135** è fisso per legge  
+- La **rivalutazione del 25%** (moltiplicazione × 1.25) è prevista dalla normativa
+
+Su questa base si applica l’**aliquota IMU** definita dal Comune.
+
+Alcuni terreni agricoli sono **esenti da IMU** se:
+
+- Sono posseduti da **coltivatori diretti** o **IAP** iscritti alla previdenza agricola
+- Ricadono in **comuni montani o parzialmente montani**
+
+---
+
+### 🏗️ Terreni edificabili
+
+La base imponibile si calcola in base al **valore venale di mercato**, determinato:
+
+- Direttamente dal Comune tramite delibera IMU
+- Oppure tramite perizia tecnica o autodichiarazione
+
+Su questa base si applica l’**aliquota per aree edificabili**, generalmente **più alta** rispetto a quella per i terreni agricoli.
+
+---
+
+## 🧠 Come trattarli nel sistema
+
+- Ogni terreno estratto da una visura viene inizialmente considerato come **agricolo** (`uso: null`)
+- L’utente potrà modificare l’uso, scegliendo tra:
+  - `terreno_agricolo`
+  - `terreno_edificabile`
+
+> ⚠️ I terreni **non sono mai esenti di default**, a meno che non siano dichiarati come:
+> - posseduti da coltivatori diretti o IAP iscritti alla previdenza agricola
+> - situati in comuni montani
