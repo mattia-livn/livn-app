@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
-    const projectId = formData.get('projectId') as string;
+    const projectId = formData.get('project_id') as string;
 
     if (!file) {
       return NextResponse.json(
@@ -46,8 +46,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      fileUrl: uploadResult.publicUrl,
-      filePath: uploadResult.path,
+      file_url: uploadResult.publicUrl,
+      file_path: uploadResult.path,
       fileName: fileName
     });
 

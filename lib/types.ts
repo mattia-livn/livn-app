@@ -16,7 +16,7 @@ export interface ImmobileEstratto {
   redditoDominicale?: number; // solo per terreni
   categoria?: string; // es. A/2, C/6 per fabbricati; qualità per terreni
   classe?: string;
-  uso: "abitazione" | "pertinenza" | "terreno_agricolo" | "terreno_edificabile" | null;
+  uso?: "abitazione" | "pertinenza" | "terreno_agricolo" | "terreno_edificabile" | null;
   superficie?: number; // per terreni
 }
 

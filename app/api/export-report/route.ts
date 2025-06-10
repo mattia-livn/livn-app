@@ -280,7 +280,7 @@ function generaHTMLReport(project: ProjectIMU): string {
   `;
 }
 
-function formattaUso(uso: string | null): string {
+function formattaUso(uso: string | null | undefined): string {
   if (!uso) return 'Non specificato';
   
   const traduzioni: Record<string, string> = {

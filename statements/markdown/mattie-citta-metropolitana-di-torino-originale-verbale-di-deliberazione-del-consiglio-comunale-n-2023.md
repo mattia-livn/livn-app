@@ -1,0 +1,32 @@
+# IMU 2023 - MATTIE-CITTA-METROPOLITANA-DI-TORINO-ORIGINALE-VERBALE-DI-DELIBERAZIONE-DEL-CONSIGLIO-COMUNALE-N
+
+## Informazioni Generali
+
+- **Comune**: MATTIE CITTA METROPOLITANA DI TORINO ORIGINALE VERBALE DI DELIBERAZIONE DEL CONSIGLIO COMUNALE N
+- **Anno**: 2023
+
+## Informazioni Aggiuntive
+
+### Assimilazione
+no
+
+
+## Aliquote IMU
+
+⚠️ **Aliquote non estratte automaticamente**
+
+Le aliquote non sono state estratte automaticamente dal PDF. 
+Consultare il documento originale per i valori esatti.
+
+## Note
+
+- Le aliquote sono espresse in percentuale
+- I valori sono estratti automaticamente dal documento ufficiale
+- **In caso di discordanza prevale sempre il documento originale**
+- Per informazioni complete consultare il PDF ufficiale
+- Questo documento contiene tutte le informazioni estratte dal PDF originale
+
+---
+*Documento generato automaticamente da: mattie.pdf*  
+*Elaborato il: 10/06/2025, 16:45:20*  
+*Estratto testo completo di 10498 caratteri*
